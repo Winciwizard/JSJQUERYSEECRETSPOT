@@ -29,7 +29,7 @@
             <h1 id="titreindex"><i class="fa fa-diamond" aria-hidden="true"></i>SeecretSpot</h1>
             <div class="row">
               <aside class="col-lg-6 col-md-6 col-s-6">
-               <div class="well" id="font-index">
+               <div class="well" >
                <h2> Poursuivre avec :  </h2>
                 <br>
                  <ul class="block-connexion">
@@ -57,14 +57,14 @@
 
             </aside>
               <aside class="col-lg-6 col-md-6 col-s-6">
-                <form method="post" action="page-principale.html" class="well" id="font-index">
+                <form method="post" action="page-principale.html" class="well" id="inscription">
                  <fieldset>
                  <h2> Déjà membre ?</h2>
-                 <label for="identifiants"> Identifiants </label>
-                 <input id="identifiants" type="text" class="form-control">
+                 <label for="identifiants"> Identifiants </label><span id="messageMail"></span>
+                 <input id="identifiants" type="email" class="form-control" required>
                  <br >
-                 <label for="password"> Mot de passe </label>
-                 <input id="password" type="password" class="form-control" >
+                 <label for="password"> Mot de passe </label><span id="messagePass"></span>
+                 <input id="password" type="password" class="form-control" required>
                  <br>
                  <input type="submit" value="Envoyer" id="bouton-inscription-home"/>
                  </fieldset>
@@ -85,7 +85,7 @@
       src="https://code.jquery.com/jquery-3.2.1.js"
       integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
       crossorigin="anonymous"></script>
-    <!-- Script plug-in jquey validation -->
-    
+    <script src="js/validForm.js"></script>
+
   </body>
 </html>
