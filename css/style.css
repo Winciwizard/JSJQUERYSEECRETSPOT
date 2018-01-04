@@ -1,3 +1,30 @@
+.erreur, .erreur:focus
+{
+  border-color: #d31d4e;
+  color : #d31d4e;
+  box-shadow: 1px 1px 15px #d31d4e;
+}
+
+.erreurMessage
+{
+  color : #d31d4e;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.valide, .valide:focus
+{
+  border-color: #8cd98c;
+  color : #8cd98c;
+  box-shadow: 1px 1px 15px #8cd98c;
+}
+
+.valideMessage
+{
+  color : black;
+  font-weight: normal;
+  font-size: 1em;
+}
 
 #index-page
 {
