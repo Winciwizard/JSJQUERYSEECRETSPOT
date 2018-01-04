@@ -15,66 +15,40 @@ $(document).ready(function(){
         if(($(this).val().length < 8) || ($(this).val().length > 16)){ // si la chaîne de caractères n'est pas un email.
             $(this).removeClass("valide").addClass("erreur");
             $messagePass.text(' Mot de passe invalide');
-            $messagePass.addClass("erreurMessage");
+            $messagePass.removeClass("valideMessage").addClass("erreurMessage");
          }
          else{
             $(this).removeClass("erreur").addClass("valide");
             $messagePass.text('');
+            $messagePass.removeClass("erreurMessage").addClass("valideMessage");
          }
     });
 
 
     $mail.keyup(function(){
         if(!regexEmail.test($mail.val())){ // si la chaîne de caractères n'est pas un email.
-            $(this).css({ // on rend le champ rouge
-                borderColor : '#d31d4e',
-                color : '#d31d4e',
-                boxShadow : '1px 1px 15px #d31d4e '
-            });
+            $(this).removeClass("valide").addClass("erreur");
             $messageMail.text(' Email Invalide');
-            $messageMail.css({
-                color : '#d31d4e',
-                fontWeight : 'bold',
-                fontSize : '0.9em'
-            });
+            $messageMail.removeClass("valideMessage").addClass("erreurMessage");
          }
          else{
-             $(this).css({ // si tout est bon, on le rend vert
-                borderColor : '#8cd98c',
-                color : '#8cd98c',
-                boxShadow : '1px 1px 15px #8cd98c '
-         });
-         $messageMail.text('');
+             $(this).removeClass("erreur").addClass("valide");
+             $messageMail.text('');
+             $messageMail.removeClass("erreurMessage").addClass("valideMessage");
          }
     });
 
     
     $valid.click(function(){
         if(!regexEmail.test($mail.val())){ // si la chaîne de caractères n'est pas un email.
-            $mail.css({ // on rend le champ rouge
-                borderColor : '#d31d4e',
-                color : '#d31d4e',
-                 boxShadow : '1px 1px 15px #d31d4e '
-            });
+            $mail.removeClass("valide").addClass("erreur");
             $messageMail.text(' Email Invalide');
-            $messageMail.css({
-                color : '#d31d4e',
-                fontWeight : 'bold',
-                fontSize : '0.9em'
-            });
+            $messageMail.removeClass("valideMessage").addClass("erreurMessage");
         }
         if(($(this).val().length < 8) || ($(this).val().length > 16)){ // si la chaîne de caractères n'est pas un email.
-            $pass.css({ // on rend le champ rouge
-                borderColor : '#d31d4e',
-                color : '#d31d4e',
-                boxShadow : '1px 1px 15px #d31d4e '
-            });
+            $pass.removeClass("valide").addClass("erreur");
             $messagePass.text(' Mot de passe invalide');
-            $messagePass.css({
-                color : '#d31d4e',
-                fontWeight : 'bold',
-                fontSize : '0.9em'
-            });
+            $messagePass.removeClass("valideMessage").addClass("erreurMessage");
          }
 
     });
