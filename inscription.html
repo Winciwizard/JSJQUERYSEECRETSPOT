@@ -29,20 +29,32 @@
     <h1 id="titre-inscription">Inscription</h1>
     <form method="post" action="centres-d-interets.html" class="well" id="font-inscription">
     <fieldset>
-      <label for="email"> Email </label>
-      <input id="email" type="text" class="form-control" placeholder="Ex: jeanmicheldu74@gmail.com" required>
-      <label for="nom"> Nom complet </label>
-      <input id="nom" type="text" class="form-control" placeholder="Ex: Bob l'éponge">
-      <label for="nomutilisateur"> Nom d'utilisateur </label>
-      <input id="nomutilisateur" type="text" class="form-control" placeholder="Ex: JeanKevin74" required>
+
+      <label for="email"> Email </label><span id="messageMail"></span>
+      <input id="email" type="text" class="form-control" required>
+
+      <label for="nom"> Nom </label><span id="messageNom"></span>
+      <input id="nom" type="text" class="form-control">
+
+      <label for="prenom"> Prénom </label><span id="messagePrenom"></span>
+      <input id="prenom" type="text" class="form-control">
+
+      <label for="utilisateur"> Utilisateur </label>
+      <input id="utilisateur" type="text" class="form-control" required>
+
       <label for="listpays"> Pays d'origine </label>
       <select class="form-control" id="listpays" >
         <option> France </option>
         <option> Usa </option>
         <option> japon </option>
       </select>
-      <label for="password"> Mot de passe </label>
+
+      <label for="password"> Mot de passe </label><span id="messagePass"></span>
       <input id="password" type="password" class="form-control" required >
+
+      <label for="confirmPassword"> Mot de passe </label><span id="messagePass"></span>
+      <input id="confirmPassword" type="password" class="form-control" required >
+
       <br />
       <input type="submit" value="Envoyer" id="bouton-inscription"/>
 
@@ -56,6 +68,11 @@
     <footer>
 
     </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.js"
+      integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+      crossorigin="anonymous"></script>
+    <script src="js/validForm.js"></script>
 
   </body>
 </html>

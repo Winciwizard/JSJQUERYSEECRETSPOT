@@ -36,21 +36,26 @@
         <form method="post" action="modif-parapmetre.php" id="formparametre" class="well">
         <fieldset>
          <legend><span class="hidden-xs">Parametre de votre </span>Compte</legend>
-           <label for="nom">Nom</label>
-            <input type="text" name="nom" id="nom" class="form-control" placeholder="Votre nom"/>
+           <label for="nom">Nom</label><span id="messageNom"></span>
+            <input type="text" name="nom" id="nom" class="form-control"/>
             <br />
-            <label for="prenom">Prénom</label>
-            <input type="text" name="prenom" id="prenom" class="form-control" placeholder="Votre prénom"/>
+
+            <label for="prenom">Prénom</label><span id="messagePrenom"></span>
+            <input type="text" name="prenom" id="prenom" class="form-control"/>
             <br />
+
             <label for="utilisateur">Nom d'utilisateur</label>
-            <input type="text" name="utilisateur" id="utilisateur" class="form-control" placeholder="nom d'utilisateur" />
+            <input type="text" name="utilisateur" id="utilisateur" class="form-control"/>
             <br />
-            <label for="mail">E-mail</label>
-            <input type="text" name="mail" id="mail" class="form-control" placeholder="votre email"/>
+
+            <label for="mail">E-mail</label><span id="messageMail"></span>
+            <input type="text" name="mail" id="email" class="form-control" placeholder="votre email"/>
             <br />
+
             <label for="description">Description</label>
             <textarea name="description" id="description" class="form-control" placeholder="Votre description"></textarea>
             <br />
+
         </fieldset>
         <fieldset>
          <legend>Mot de passe</legend>
@@ -58,9 +63,11 @@
             <label for="old-pass">Ancien mot de passe</label>
             <input type="password" name="old-pass" id="old-pass" class="form-control" />
             <br />
+
             <label for="new-pass-1">Nouveau mot de passe</label>
             <input type="password" name="new-pass-1" id="new-pass-1" class="form-control" />
             <br />
+
             <label for="new-pass-2"> Confirmation du nouveau mot de passe</label>
             <input type="password" name="new-pass-2" id="new-pass-2" class="form-control" />
             <br />
@@ -80,6 +87,10 @@
     <footer>
 
     </footer>
-
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.js"
+      integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+      crossorigin="anonymous"></script>
+    <script src="js/validForm.js"></script>
   </body>
 </html>
