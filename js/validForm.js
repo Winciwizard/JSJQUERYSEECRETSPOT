@@ -15,60 +15,65 @@ $(document).ready(function(){
         $messageEnvoi = $('#messageEnvoi');
 
     var regexEmail = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/,
-        regexNom = /[^0-9][a-zA-Z]/,
-        regexUser = /[a-zA-Z0-9._-]/;
+        regexNom = /^([a-z]+(( |')[a-z]+)*)+([-]([a-z]+(( |')[a-z]+)*)+)*$/,
+        regexUser = /^[A-Za-z0-9._-]{3,16}$/;
+
+    function affichageErreur(valeur,messageVar,messageErreur){
+        valeur.removeClass("valide").addClass("erreur");
+        messageVar.text(messageErreur);
+        messageVar.removeClass("valideMessage").addClass("erreurMessage");
+    }
+    
+    function affichageValide(valeur,messageVar){
+        valeur.removeClass("erreur").addClass("valide");
+            messageVar.text('');
+            messageVar.removeClass("erreurMessage").addClass("valideMessage");
+    }
+
+    function validationInput(valeur,condition,messageVar,messageErreur){
+        if(condition){
+            affichageErreur(valeur,messageErreur);
+         }
+         else{
+            affichageValide(valeur,messageVar);
+         }
+    }
+
 
     $pass.keyup(function(){       
-        if(($(this).val().length < 8) || ($(this).val().length > 16)){ // si la chaîne de caractères n'est pas un email.
-            $(this).removeClass("valide").addClass("erreur");
-            $messagePass.text(' Mot de passe invalide');
-            $messagePass.removeClass("valideMessage").addClass("erreurMessage");
-         }
-         else{
-            $(this).removeClass("erreur").addClass("valide");
-            $messagePass.text('');
-            $messagePass.removeClass("erreurMessage").addClass("valideMessage");
-         }
+        validationInput(
+            $(this),
+            ($(this).val().length < 8) || ($(this).val().length > 16),
+            $messagePass,
+            ' Mot de passe invalide'
+        );
     });
 
-
     $mail.keyup(function(){
-        if(!regexEmail.test($mail.val())){ // si la chaîne de caractères n'est pas un email.
-            $(this).removeClass("valide").addClass("erreur");
-            $messageMail.text(' Email Invalide');
-            $messageMail.removeClass("valideMessage").addClass("erreurMessage");
-         }
-         else{
-             $(this).removeClass("erreur").addClass("valide");
-             $messageMail.text('');
-             $messageMail.removeClass("erreurMessage").addClass("valideMessage");
-         }
+        validationInput(
+            $(this),
+            (!regexEmail.test($mail.val())),
+            $messageMail,
+            ' Email Invalide'
+        );
     });
 
     $nom.keyup(function(){
-        if(!regexNom.test($nom.val())){
-            $(this).removeClass("valide").addClass("erreur");
-            $messageNom.text(' Ne pas utiliser de chiffres');
-            $messageNom.removeClass("valideMessage").addClass("erreurMessage");
-         }
-         else{
-             $(this).removeClass("erreur").addClass("valide");
-             $$messageNom.text('');
-             $messageNom.removeClass("erreurMessage").addClass("valideMessage");
-         }
+        validationInput(
+            $(this),
+            (!regexNom.test($nom.val())),
+            $messageNom,
+            ' Ne pas utiliser de chiffres'
+        );
     });
 
     $prenom.keyup(function(){
-        if(!regexNom.test($prenom.val())){
-            $(this).removeClass("valide").addClass("erreur");
-            $messagePrenom.text(" C'est quoi ce prenom");
-            $messagePrenom.removeClass("valideMessage").addClass("erreurMessage");
-         }
-         else{
-             $(this).removeClass("erreur").addClass("valide");
-             $messagePrenom.text('');
-             $messagePrenom.removeClass("erreurMessage").addClass("valideMessage");
-         }
+        validationInput(
+            $(this),
+            (!regexNom.test($prenom.val())),
+            $messagePrenom,
+            " C'est quoi ce prenom"
+        );
     });
 
     $utilisateur.focus(function(){
@@ -76,28 +81,26 @@ $(document).ready(function(){
     });
 
     $utilisateur.keyup(function(){
-        if(!regexUser.test($utilisateur.val())){
-            $(this).removeClass("valide").addClass("erreur");
-            $messageUtilisateur.text(" C'est quoi ce prenom");
-            $messageUtilisateur.removeClass("valideMessage").addClass("erreurMessage");
-         }
-         else{
-             $(this).removeClass("erreur").addClass("valide");
-             $messageUtilisateur.text('');
-             $messageUtilisateur.removeClass("erreurMessage").addClass("valideMessage");
-         }
+        validationInput(
+            $(this),
+            (!regexUser.test($utilisateur.val())),
+            $messageUtilisateur,
+            " C'est quoi ce prenom"
+        );
     });
 
     $validIndex.click(function(){
-        if(!regexEmail.test($mail.val())){ // si la chaîne de caractères n'est pas un email.
-            $mail.removeClass("valide").addClass("erreur");
-            $messageMail.text(' Email Invalide');
-            $messageMail.removeClass("valideMessage").addClass("erreurMessage");
+        if(!regexEmail.test($mail.val())){
+            affichageErreur(
+                $mail,$messageMail,
+                ' Email Invalide'
+            );
         }
-        if(($(this).val().length < 8) || ($(this).val().length > 16)){ // si la chaîne de caractères n'est pas un email.
-            $pass.removeClass("valide").addClass("erreur");
-            $messagePass.text(' Mot de passe invalide');
-            $messagePass.removeClass("valideMessage").addClass("erreurMessage");
+        if(($(this).val().length < 8) || ($(this).val().length > 16)){
+            affichageErreur(
+                $pass,$messagePass,
+                ' Mot de passe invalide'
+            );
          }
 
     });
