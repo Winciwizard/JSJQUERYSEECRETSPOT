@@ -9,8 +9,6 @@ $(document).ready(function(){
 $img.css('display','none');
 $currentImg.css('display','block');
 
-$carrousel.append('<div class="controls"> <span class="prev"><</span> <span class="next">></span> </div>');
-
 $('.prev').css('fontSize','50px');
 $('.next').css('fontSize','50px');
 
@@ -67,11 +65,11 @@ function slideImg(){
 	$currentImg = $img.eq(i);
 	$currentImg.css('display', 'block');
 
-	slideImg(); // on oublie pas de relancer la fonction à la fin
+	slideImg(); 
 
-    }, 3000); // on définit l'intervalle à 7000 millisecondes (7s)
+    }, 6000); 
 }
 
-slideImg(); // enfin, on lance la fonction une première fois
+slideImg();
 
 });

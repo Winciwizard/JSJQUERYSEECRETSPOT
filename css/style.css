@@ -425,3 +425,31 @@ li
 {
 padding-left: 20px;
 }
+
+ul
+{
+  list-style-type: none;
+  padding: 0px;
+}
+.imageCaroussel
+{
+  width: 100%;
+  text-align: center;
+
+}
+
+.prev
+{
+  position: absolute;
+  bottom: 40%;
+  left: 5%;
+  width: 50px;
+}
+
+.next
+{
+  position: absolute;
+  bottom: 40%;
+  right: 5%;
+  width: 50px;
+}
